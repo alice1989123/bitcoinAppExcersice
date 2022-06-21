@@ -9,13 +9,21 @@ import { UploadComponent } from './upload/upload.component';
 import {  MatFormFieldModule} from "@angular/material/form-field"
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {
+  HighchartsChartModule
+} from 'highcharts-angular';
+import { LogInComponent } from './log-in/log-in.component';
+import { OperateComponent } from './operate/operate.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     
     PriceComponent,
-    UploadComponent
+    UploadComponent,
+    LogInComponent,
+    OperateComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -25,6 +33,7 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
+    HighchartsChartModule,
     MDBBootstrapModule.forRoot()
 
     

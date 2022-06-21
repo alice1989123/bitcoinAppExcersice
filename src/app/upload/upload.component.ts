@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
@@ -12,7 +14,7 @@ export class UploadComponent implements OnInit {
   SERVER_URL = "http://localhost:3000/";
 
 
-  constructor(private fb: FormBuilder , private http :HttpClient) { }
+  constructor(private fb: FormBuilder , private http :HttpClient , private router:Router) { }
 
   ngOnInit() {
     this.uploadForm = this.fb.group({
@@ -28,35 +30,26 @@ getPrice() {
   return this.http.get(this.SERVER_URL);
 
 }
-
+login( ){
+  this.router.navigate(['/log-in'])
+ 
+}
 
   get user( ){
-    return this.uploadForm.get('User')
-   
+    return this.uploadForm.get('User')   
   }
   submit(){
     const user = this.uploadForm.get("User");
 
     console.log(this.uploadForm.value)
-    const price =  this.http.post('http://localhost:3000/register_user', this.uploadForm.value ,   {responseType: 'text'})
+    const price =  this.http.post('http://localhost:3000/register', this.uploadForm.value ,   {responseType: 'text'})
     .subscribe({
-      next: (response) => console.log(response),
-      error: (error) => console.log(error),
+      next: (response) => {console.log(response) ;window.alert(" New account succesfully created"); this.router.navigate(['./log-in'])},
+      error: (error) => { if(error.status === 400){window.alert(error.error)} console.log(error)},
     });
     console.log(price)
   }
 
-    submitForm() {
-    var formData: any = new FormData();
-    formData.append('User', this.uploadForm.value.User);
-    formData.append('Password',this.uploadForm.value.Password);
-    console.log(formData)
-    this.http
-      .get('http://localhost:3000/api/', formData)
-      .subscribe({
-        next: (response) => console.log(response),
-        error: (error) => console.log(error),
-      });
-  }
+   
 
 }

@@ -14,8 +14,10 @@
       At least 8 characters and 1 digit
     </small>  
       <!-- Sign up button -->
-    <button (click)="submit()" mdbBtn color="info" block="true" class="my-4" type="submit">Sign in</button>
+    <button (click)="submit()" mdbBtn color="info" block="true" class="my-4" type="submit">Sign up</button>
     <!-- Social register -->
+    <p> Alredy an User?</p>
+    <button (click)="login()" mdbBtn color="info" block="true" class="my-4" type="submit">Log-in</button>
     <p>or sign up with:</p>
     <a type="button" class="light-blue-text mx-2">
       <mdb-icon fab icon="facebook"></mdb-icon>
@@ -30,12 +32,17 @@
       <mdb-icon fab icon="github"></mdb-icon>
     </a>
     <hr>
+    
     <!-- Terms of service -->
     <p>By clicking
       <em>Sign up</em> you agree to our
       <a href="" target="_blank">terms of service</a>
     </p>
+  
   </form>
-  <!-- Default form register -->
 
+  <!-- Default form register -->
+    
 </div>
+
+

@@ -1,0 +1,29 @@
+  <!-- Default form register -->
+  <div  class="d-flex flex-column align-items-center" >
+    <form  [formGroup]="uploadForm" class="text-center border border-light p-5 w-50">
+      <p class="h4 mb-4">Log-In</p>
+    
+      <!-- E-mail -->
+      <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" formControlName="User">
+      <!-- Password -->
+      <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password"
+        aria-describedby="defaultRegisterFormPasswordHelpBlock" formControlName="Password">
+      <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+        At least 8 characters and 1 digit
+      </small>
+        <!-- Sign up button -->
+      <button (click)="submit()" mdbBtn color="info" block="true" class="my-4" type="submit">Log in</button>
+      <!-- Social register -->
+      <p> or regirster a new account</p>
+      <button (click)="register()" mdbBtn color="info" block="true" class="my-4" type="submit">Register</button>
+    
+      <hr>
+      <!-- Terms of service -->
+      <p>By clicking
+        <em> Log in </em> you agree to our
+        <a href="" target="_blank">terms of service</a>
+      </p>
+    </form>
+  </div>
+  <!-- Default form register -->
+  

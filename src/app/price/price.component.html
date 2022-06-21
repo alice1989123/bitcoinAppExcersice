@@ -1,2 +1,21 @@
 
-<div><h2>{{price}} USD </h2></div>
+<div class="w-100 d-flex justify-content-center">
+  
+  <div class="w-70  d-flex flex-row">
+   
+   
+    <div class="w-100 d-flex flex-column align-items-center justify-content-center">
+      <h2> Actual BTC Price:</h2>
+      <h2>{{rate.bitcoin}} USD </h2>
+      <app-operate></app-operate>
+
+    </div>
+    <div>
+      <highcharts-chart *ngIf="chartOptions"
+        [Highcharts]="Highcharts"
+        [options]="chartOptions"
+        style="width: 500px; height: 400px; display: block;"
+      ></highcharts-chart>
+    </div>
+  </div>
+</div>
