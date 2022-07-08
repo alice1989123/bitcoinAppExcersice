@@ -14,6 +14,7 @@ import {
 } from 'highcharts-angular';
 import { LogInComponent } from './log-in/log-in.component';
 import { OperateComponent } from './operate/operate.component';
+import{MatGridListModule} from '@angular/material/grid-list'; 
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { OperateComponent } from './operate/operate.component';
     BrowserAnimationsModule,
     MatFormFieldModule,
     HighchartsChartModule,
+    MatGridListModule,
     MDBBootstrapModule.forRoot()
 
     

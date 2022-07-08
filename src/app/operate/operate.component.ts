@@ -2,18 +2,24 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Trade } from './trade';
 
 @Component({
   selector: 'app-operate',
   templateUrl: './operate.component.html',
   styleUrls: ['./operate.component.css']
 })
+
 export class OperateComponent implements OnInit {
+
+
+  trades:any
 
   BuyForm!: FormGroup;  
   SellForm!: FormGroup;  
-  balance:any
+  balance:any;
  
+  applyStyles: any
 
 
   SERVER_URL = "http://localhost:3000/";
@@ -25,7 +31,10 @@ export class OperateComponent implements OnInit {
     this.http.get(this.SERVER_URL+'funds',  {responseType: 'text' ,  withCredentials: true } ).subscribe(data => {
       this.balance = JSON.parse(data);
       
-      console.log(data)
+
+      
+
+      
   })
     this.BuyForm = this.fb.group({
       qty: '',
@@ -35,6 +44,34 @@ export class OperateComponent implements OnInit {
     qty: '',
 
 })
+
+/* this.http.get(this.SERVER_URL+'trades',  {responseType: 'text' ,  withCredentials: true } ).subscribe(data => {
+  console.log('hey')
+  console.log(data)
+
+  this.trade = data.price;
+  
+
+  
+
+  
+})
+ */
+
+ this.http.get(this.SERVER_URL+'trades',  {responseType: 'text' ,  withCredentials: true } ).subscribe(data => {
+  const response = JSON.parse(data)  
+  this.trades = response;
+  console.log(response)
+  //this.prices= response.map(x:any  => x.price)
+  
+
+  
+
+  
+}) 
+
+
+
 
 //this.balance = this.http.get("http://localhost:3000/")
 

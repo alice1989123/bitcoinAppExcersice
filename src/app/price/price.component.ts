@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import { GetPriceService } from '../get-price.service';
-import { OperateComponent } from '../operate/operate.component';
 
-// app.component.ts
 
 import * as Highcharts from 'highcharts';
 import {
